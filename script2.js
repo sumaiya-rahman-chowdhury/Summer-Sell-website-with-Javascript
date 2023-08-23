@@ -10,14 +10,15 @@ function handleClickCard(target){
     document.getElementById('total-price').innerText = total.toFixed(2) ;
     document.getElementById('newTotal').innerText = total.toFixed(2)
     if(total>0){
-        makePurchase.removeAttribute('disabled');
-        makePurchase.style.backgroundColor = '#E527B2'
+        removeAttribute(makePurchase);
      }
      if(total>200){
-        applyBtn.removeAttribute('disabled');
-        applyBtn.style.backgroundColor = '#E527B2'
-     }
-   
+        removeAttribute(applyBtn);
+     }  
+}
+function removeAttribute(elementName){
+    elementName.removeAttribute('disabled');
+    elementName.style.backgroundColor = '#E527B2'
 }
 function createli(text){
    const li = document.createElement('li') ;
@@ -32,9 +33,8 @@ function discount(){
     if(document.getElementById('apply-coupn').value === 'SELL200')
     {
         const discount = (20*total)/100 ;
-        document.getElementById('discount').innerText = discount ;
-        const nowTotal = total - discount ;s
-        document.getElementById('newTotal').innerText = nowTotal ;
+        document.getElementById('discount').innerText = discount.toFixed(2) ;
+        const nowTotal = total - discount ;
+        document.getElementById('newTotal').innerText = nowTotal.toFixed(2) ;
     }
-  
 }
